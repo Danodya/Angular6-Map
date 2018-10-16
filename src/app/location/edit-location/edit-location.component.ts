@@ -15,29 +15,29 @@ export class EditLocationComponent implements OnInit {
   radius: number;
 
  // locationChosen = false;
-//  markers: Marker[] = [
-//   {
-//     lat: 51.673858,
-//     lng: 7.815982,
-//     label: 'A',
-//     radius: 9000,
-//     draggable: true
-//   },
-//   {
-//     lat: 51.373858,
-//     lng: 7.215982,
-//     label: 'B',
-//     radius: 9000,
-//     draggable: true
-//   },
-//   {
-//     lat: 51.723858,
-//     lng: 7.895982,
-//     label: 'C',
-//     radius: 9000,
-//     draggable: true
-//   }
-//     ];
+ markers: Marker[] = [
+  {
+    lat: 51.673858,
+    lng: 7.815982,
+    label: 'A',
+    radius: 9000,
+    draggable: true
+  },
+  {
+    lat: 51.373858,
+    lng: 7.215982,
+    label: 'B',
+    radius: 9000,
+    draggable: true
+  },
+  {
+    lat: 51.723858,
+    lng: 7.895982,
+    label: 'C',
+    radius: 9000,
+    draggable: true
+  }
+    ];
 
   constructor() {
   this.radius = 10000;
@@ -49,12 +49,12 @@ export class EditLocationComponent implements OnInit {
   mapClicked($event: MouseEvent) {
     this.lat = $event.coords.lat;
     this.lng = $event.coords.lng;
-    // this.markers.push({
-    //         lat: $event.coords.lat,
-    //         lng: $event.coords.lng,
-    //         radius: 9000,
-    //         draggable: true
-    //       });
+    this.markers.push({
+            lat: $event.coords.lat,
+            lng: $event.coords.lng,
+            radius: 9000,
+            draggable: true
+          });
    // this.locationChosen = true;
    console.log($event);
   }

@@ -44,7 +44,7 @@
 <aside>
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
 
-    <agm-circle [latitude]="lat" [longitude]="lng" [radius]="radius" [fillColor]="'red'" [circleDraggable]="false" [editable]="true"
+    <agm-circle *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [radius]="m.radius" [fillColor]="'purple'" [circleDraggable]="false" [editable]="true"
       (centerChange)="centerChange($event)" (radiusChange)="radiusChange($event)" (dragEnd)="dragEnd($event)">
     </agm-circle>
     <!-- <agm-circle *ngFor="let m of markers; let i = index" [latitude]="m.lat" [longitude]="m.lng" [radius]="m.radius" [fillColor]="'yellow'" [circleDraggable]="false" [editable]="true"
