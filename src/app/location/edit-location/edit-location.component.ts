@@ -19,7 +19,6 @@ export class EditLocationComponent implements OnInit {
   {
     lat: 6.8602,
     lng: 80.0535,
-    label: 'A',
     radius: 9000,
     draggable: true
   }
@@ -60,6 +59,13 @@ export class EditLocationComponent implements OnInit {
     this.radius = parseFloat(value);
   }
 
+  removeCircle(event) {
+console.log(event);
+for (let i = 0; i < this.circles.length; i++) {
+this.circles.splice(i, 1);
+}
+  }
+
   // dragEnd(dragEvent: MouseEvent) {
   //   console.log(dragEvent);
   //   this.locationChosen = true;
@@ -76,7 +82,6 @@ export class EditLocationComponent implements OnInit {
 interface Circle {
   lat: number;
   lng: number;
-  label?: string;
   draggable: boolean;
   radius: number;
 }

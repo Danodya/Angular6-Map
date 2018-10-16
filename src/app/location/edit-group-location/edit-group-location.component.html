@@ -1,0 +1,45 @@
+<p class="text-info">
+    <strong>EditGroup Location</strong>
+  </p>
+  <hr>
+  <section>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="name" class="form-control" id="name" name="name" aria-describedby="namehelp" placeholder="Enter name">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="description" class="form-control" id="description" name="description" aria-describedby="descriptionhelp" placeholder="Enter description">
+      </div>
+      <div class="form-group">
+        <label for="longitude">Longitude</label>
+        <input type="lng" class="form-control" id="longitude" [(ngModel)]="lng" name="lng" aria-describedby="longitudehelp" placeholder="Enter longitude">
+      </div>
+      <div class="form-group">
+        <label for="brand">Brand</label>
+        <!-- <input type="brand" class="form-control" id="brand" aria-describedby="brandhelp" placeholder="Enter Brand"> -->
+        <select id="brand" class="form-control">
+          <option selected>KANDY</option>
+          <option>...</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label for="location">Location</label>
+          <select id="location" class="form-control">
+            <option selected>KANDY Shop Dehiwala</option>
+            <option>KANDY Shop Wattala</option>
+          </select>
+        </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </section>
+
+  <aside>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+
+      <agm-circle *ngFor="let c of circles" [latitude]="c.lat" [longitude]="c.lng" [radius]="c.radius" [fillColor]="'purple'" [circleDraggable]="false" [editable]="true"
+        (centerChange)="centerChange($event)" (radiusChange)="radiusChange($event)" (dragEnd)="dragEnd($event)" (rightClick)="removeCircle($event)" [strokePosition]='OUTSIDE' [strokeWeight]=0.5>
+      </agm-circle>
+    </agm-map>
+  </aside>

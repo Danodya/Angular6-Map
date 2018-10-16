@@ -6,6 +6,7 @@ import { LocationComponent } from './location.component';
 import { EditLocationComponent } from './edit-location/edit-location.component';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule } from '@angular/forms';
+import { EditGroupLocationComponent } from './edit-group-location/edit-group-location.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { FormsModule } from '@angular/forms';
     }),
     FormsModule
   ],
-  declarations: [LocationComponent, EditLocationComponent]
+  declarations: [LocationComponent, EditLocationComponent, EditGroupLocationComponent]
 })
 export class LocationModule { }
