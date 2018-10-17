@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
-import { EditLocationComponent } from 'src/app/location/edit-location/edit-location.component';
+import { MouseEvent } from '@agm/core';
 
 @Component({
   selector: 'app-edit-group-location',
@@ -8,12 +8,19 @@ import { EditLocationComponent } from 'src/app/location/edit-location/edit-locat
   styleUrls: ['./edit-group-location.component.css']
 })
 export class EditGroupLocationComponent implements OnInit {
-@Input() editlocation: EditLocationComponent;
- lat = 6.8602;
+  lat = 6.8602;
   lng = 80.0535;
-  constructor() { }
 
-  ngOnInit() {
+  values = [
+    { id: 0, name: 'Click here to search'},
+    { id: 1, name: 'KANDY Shop Dehiwala' },
+    { id: 2, name: 'KANDY Shop Wattala' }
+  ];
+  constructor() {}
+
+  ngOnInit() {}
+  public onChange(event): void {  // event will give you full breif of action
+    const newVal = event.target.value;
+    console.log(newVal);
   }
-
 }

@@ -10,12 +10,12 @@ import { Input } from '@angular/core';
 export class EditLocationComponent implements OnInit {
   title = 'edit location';
   zoom = 8;
-  lat = 6.8602;
-  lng = 80.0535;
-  radius: number;
+  private lat = 6.8602;
+  private lng = 80.0535;
+  private radius: number;
 
  // locationChosen = false;
- circles: Circle[] = [
+ private circles: Circle[] = [
   {
     lat: 6.8602,
     lng: 80.0535,
@@ -31,7 +31,7 @@ export class EditLocationComponent implements OnInit {
 
   ngOnInit() {}
 
-  mapClicked($event: MouseEvent) {
+  public mapClicked($event: MouseEvent) {
     this.lat = $event.coords.lat;
     this.lng = $event.coords.lng;
     this.circles.push({
@@ -44,22 +44,22 @@ export class EditLocationComponent implements OnInit {
    console.log($event);
   }
 
-  centerChange(centerChangeEvent) {
+  public centerChange(centerChangeEvent) {
     this.lat = centerChangeEvent.lat;
     this.lng = centerChangeEvent.lng;
     console.log(centerChangeEvent);
   }
 
-  radiusChange(radiusChangeEvent) {
+  public radiusChange(radiusChangeEvent) {
     this.radius = radiusChangeEvent;
     console.log(radiusChangeEvent);
   }
 
-  onEnter(value) {
+  public onEnter(value) {
     this.radius = parseFloat(value);
   }
 
-  removeCircle(event) {
+  public removeCircle(event) {
 console.log(event);
 for (let i = 0; i < this.circles.length; i++) {
 this.circles.splice(i, 1);
