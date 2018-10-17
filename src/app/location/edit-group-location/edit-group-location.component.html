@@ -35,8 +35,10 @@
   <aside>
     <!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)"> -->
         <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-circle *ngFor="let c of circles" [latitude]="c.lat" [longitude]="c.lng" [radius]="c.radius" [fillColor]="'purple'" [circleDraggable]="false" [editable]="true"
+      <!-- <agm-circle *ngFor="let v of values" [latitude]="v.lat" [longitude]="v.lng" [radius]="v.radius" [fillColor]="'yellow'" [circleDraggable]="false" [editable]="true"
         (centerChange)="centerChange($event)" (radiusChange)="radiusChange($event)" (dragEnd)="dragEnd($event)" (rightClick)="removeCircle($event)" [strokePosition]='OUTSIDE' [strokeWeight]=0.5>
-      </agm-circle>
+      </agm-circle> -->
+      <agm-circle [latitude]="lat" [longitude]="lng" [radius]="radius" [fillColor]="'yellow'" [circleDraggable]="false" [editable]="true" (radiusChange)="radiusChange($event)" (dragEnd)="dragEnd($event)" (rightClick)="removeCircle($event)" [strokePosition]='OUTSIDE' [strokeWeight]=0.5>
+    </agm-circle>
     </agm-map>
   </aside>

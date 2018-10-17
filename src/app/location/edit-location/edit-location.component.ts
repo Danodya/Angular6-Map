@@ -10,8 +10,8 @@ import { Input } from '@angular/core';
 export class EditLocationComponent implements OnInit {
   title = 'edit location';
   zoom = 8;
-  private lat = 6.8602;
-  private lng = 80.0535;
+  private lat = 6.9271;
+  private lng = 79.8612;
   private radius: number;
 
  // locationChosen = false;
