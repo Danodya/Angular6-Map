@@ -1,44 +1,47 @@
 <p class="text-info">
-    <strong>EditGroup Location</strong>
-  </p>
-  <hr>
-  <section>
-    <form>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="name" class="form-control" id="name" name="name" aria-describedby="namehelp" placeholder="Enter name">
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input type="description" class="form-control" id="description" name="description" aria-describedby="descriptionhelp" placeholder="Enter description">
-      </div>
-      <div class="form-group">
-        <label for="brand">Brand</label>
-        <!-- <input type="brand" class="form-control" id="brand" aria-describedby="brandhelp" placeholder="Enter Brand"> -->
-        <select id="brand" class="form-control">
-          <option selected>KANDY</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="form-group">
-          <label for="location">Location</label>
-          <select id="location" class="form-control" (change)="onChange($event)">
-            <option *ngFor="let v of values" [value]="v.id">{{v.name}}</option>
-            <!-- <option>KANDY Shop Dehiwala</option>
-            <option>KANDY Shop Wattala</option> -->
-          </select>
-        </div>
-      <button type="submit" class="btn btn-primary">Update</button>
-    </form>
-  </section>
+  <strong>EditGroup Location</strong>
+</p>
+<hr>
+<section>
+  <form>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="name" class="form-control" id="name" name="name" aria-describedby="namehelp" placeholder="Enter name">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="description" class="form-control" id="description" name="description" aria-describedby="descriptionhelp" placeholder="Enter description">
+    </div>
+    <div class="form-group">
+      <label for="brand">Brand</label>
+      <!-- <input type="brand" class="form-control" id="brand" aria-describedby="brandhelp" placeholder="Enter Brand"> -->
+      <select id="brand" class="form-control">
+        <option selected>KANDY</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <br>
+      <button *ngFor="let i of uniqueValues">{{i.name}}</button>
+      <select id="location" class="form-control" (change)="onChange($event)">
+        <option [ngValue]="null">Click here to search</option>
+        <option *ngFor="let v of values" [value]="v.id">{{v.name}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</section>
 
-  <aside>
-    <!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)"> -->
-        <agm-map [latitude]="lat" [longitude]="lng">
-      <!-- <agm-circle *ngFor="let v of values" [latitude]="v.lat" [longitude]="v.lng" [radius]="v.radius" [fillColor]="'yellow'" [circleDraggable]="false" [editable]="true"
+<aside>
+  <!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)"> -->
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <!-- <agm-circle *ngFor="let v of values" [latitude]="v.lat" [longitude]="v.lng" [radius]="v.radius" [fillColor]="'yellow'" [circleDraggable]="false" [editable]="true"
         (centerChange)="centerChange($event)" (radiusChange)="radiusChange($event)" (dragEnd)="dragEnd($event)" (rightClick)="removeCircle($event)" [strokePosition]='OUTSIDE' [strokeWeight]=0.5>
       </agm-circle> -->
-      <agm-circle [latitude]="lat" [longitude]="lng" [radius]="radius" [fillColor]="'yellow'" [circleDraggable]="false" [editable]="true" (radiusChange)="radiusChange($event)" (dragEnd)="dragEnd($event)" (rightClick)="removeCircle($event)" [strokePosition]='OUTSIDE' [strokeWeight]=0.5>
+    <agm-circle *ngFor="let i of uniqueValues" [latitude]="i.lat" [longitude]="i.lng" [radius]="radius" [fillColor]="'yellow'"
+      [circleDraggable]="false" [editable]="true" (radiusChange)="radiusChange($event)" (dragEnd)="dragEnd($event)" (rightClick)="removeCircle($event)"
+      [strokePosition]='OUTSIDE' [strokeWeight]=0.5>
     </agm-circle>
-    </agm-map>
-  </aside>
+  </agm-map>
+</aside>

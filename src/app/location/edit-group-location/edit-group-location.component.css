@@ -36,3 +36,13 @@ section {
 float:left;
 width:50%;
 }
+
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: inherit;
+}
