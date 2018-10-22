@@ -51,6 +51,10 @@ console.log(this.uniqueValues);
       }
     }
   }
+
+  remove(event) {
+
+  }
 }
 interface Value {
   id: number;
@@ -61,9 +65,3 @@ interface Value {
   radius?: number;
 }
 
-// interface Showvalue {
-//   id: number;
-//   lat: number;
-//   lng: number;
-//   name: String;
-// }

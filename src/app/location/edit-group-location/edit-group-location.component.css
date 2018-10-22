@@ -46,3 +46,11 @@ textarea {
   font-size: 12px;
   line-height: inherit;
 }
+
+.btn-success {
+  color: rgb(223, 213, 213);
+  background-color: #28a745;
+  border-color: #28a745;
+  height:20px;
+  width:20px;
+}
