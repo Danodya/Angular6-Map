@@ -53,7 +53,9 @@ console.log(this.uniqueValues);
   }
 
   remove(event) {
-
+    console.log(event);
+    this.uniqueValues.splice(this.uniqueValues.findIndex(element => element.id === event), 1);
+    console.log(this.uniqueValues);
   }
 }
 interface Value {

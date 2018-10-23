@@ -23,7 +23,8 @@
     <div class="form-group">
       <label for="location">Location</label>
       <br>
-      <button *ngFor="let i of uniqueValues">{{i.name}}&ensp;<button class="btn-success" (click)="remove($event)">X</button></button>
+      <!-- <button *ngFor="let i of uniqueValues">{{i.name}}&ensp;<button class="btn-success" (click)="remove(this.uniqueValues)">X</button></button> -->
+      <button *ngFor="let i of uniqueValues" (click)="remove(i.id)" >{{i.name}}&ensp;X</button>
       <select id="location" class="form-control" (change)="onChange($event)">
         <option [ngValue]="null">Click here to search</option>
         <option *ngFor="let v of values" [value]="v.id">{{v.name}}</option>
